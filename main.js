@@ -26,7 +26,8 @@ submit.addEventListener("click", () => {
             month: Number(listOfDate[1]),
             year: Number(listOfDate[0])
         };
-        findPalis(date);
+        // findPalis(date);
+        findOnlyNextPalindrome(date);
     }
 })
 
@@ -216,9 +217,10 @@ function getPrevPalindromeDate(date) {
     return [ctr, prevDate];
 }
 
+
 function findPalis(date) {
 
-    if(checkPalindromeForAllDateFormats(date)){
+    if (checkPalindromeForAllDateFormats(date)) {
         resultRef.innerText = "Yay! your birthday is a palindrome!! 🥳🥳";
     }
 
@@ -228,14 +230,26 @@ function findPalis(date) {
     console.log(prev);
     console.log(next);
 
-    if(prev[0] < next[0]){
+    if (prev[0] < next[0]) {
         resultRef.innerText = `Your birthday is not a palindrome. The closest palindrome date is ${prev[1].day}-${prev[1].month}-${prev[1].year}, you missed it by ${prev[0]} days 😔`
-    }else{
+    } else {
         resultRef.innerText = `Your birthday is not a palindrome. The closest palindrome date is ${next[1].day}-${next[1].month}-${next[1].year}, you missed it by ${next[0]} days 😔`
     }
     setTimeout(() => {
         resultRef.style.display = "block";
-    gif.style.display = "none";
+        gif.style.display = "none";
+    }, 4000)
+}
+
+function findOnlyNextPalindrome(date) {
+    if (checkPalindromeForAllDateFormats(date)) {
+        resultRef.innerText = "Yay! your birthday is a palindrome!! 🥳🥳";
+    }
+    let next = getNextPalindromeDate(date);
+    resultRef.innerText = `Your birthday is not a palindrome. The closest palindrome date is ${next[1].day}-${next[1].month}-${next[1].year}, you missed it by ${next[0]} days 😔`;
+    setTimeout(() => {
+        resultRef.style.display = "block";
+        gif.style.display = "none";
     }, 4000)
 }
 
