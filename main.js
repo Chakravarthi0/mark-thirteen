@@ -254,7 +254,7 @@ function findOnlyNextPalindrome(date) {
     setTimeout(() => {
         resultRef.style.display = "block";
         gif.style.display = "none";
-    }, 4000)
+    }, 2500)
 }
 
 // findPalis({ day: 3, month: 12, year: 2011 })
