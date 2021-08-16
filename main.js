@@ -176,23 +176,24 @@ function getPrevDate(date) {
 
     if (day < 1) {
         month--;
+        if (month < 1) {
+            month = 12;
+            day = 31;
+            year--;
+        }
         //leap Year
-        if (month === 2) {
+        else if (month === 2) {
             if (isLeapYear(year)) {
                 day = 29;
             }
-            day = 28;
+            else{
+                day = 28;
+            }
         }
         //non-leapyr
         else {
             day = daysInMonth[month - 1];
         }
-    }
-
-    if (month < 1) {
-        month = 12;
-        day = 31;
-        year--;
     }
 
     return {
