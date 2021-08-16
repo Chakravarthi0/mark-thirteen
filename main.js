@@ -175,6 +175,7 @@ function getPrevDate(date) {
 
 
     if (day < 1) {
+        month--;
         //leap Year
         if (month === 3) {
             if (isLeapYear(year)) {
@@ -186,11 +187,11 @@ function getPrevDate(date) {
         else {
             day = daysInMonth[month - 1];
         }
-        month--;
     }
 
     if (month < 1) {
         month = 12;
+        day = 31;
         year--;
     }
 
