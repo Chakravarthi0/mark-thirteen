@@ -245,8 +245,10 @@ function findOnlyNextPalindrome(date) {
     if (checkPalindromeForAllDateFormats(date)) {
         resultRef.innerText = "Yay! your birthday is a palindrome!! 🥳🥳";
     }
-    let next = getNextPalindromeDate(date);
+    else{
+        let next = getNextPalindromeDate(date);
     resultRef.innerText = `Your birthday is not a palindrome. The closest palindrome date is ${next[1].day}-${next[1].month}-${next[1].year}, you missed it by ${next[0]} days 😔`;
+    }
     setTimeout(() => {
         resultRef.style.display = "block";
         gif.style.display = "none";
